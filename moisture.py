@@ -10,17 +10,17 @@ HOST_NAME = "a1riyud89t2tj-ats.iot.us-east-2.amazonaws.com"
 
 # The relative path to the correct root CA file for &IoT;,
 # which you have already saved onto this device.
-ROOT_CA = "./AmazonRootCA1.pem"
+ROOT_CA = "./keys/AmazonRootCA1.pem"
 
 # The relative path to your private key file that
 # &IoT; generated for this device, which you
 # have already saved onto this device.
-PRIVATE_KEY = "./4ac6b9240b-private.pem.key"
+PRIVATE_KEY = "./keys/4ac6b9240b-private.pem.key"
 
 # The relative path to your certificate file that
 # &IoT; generated for this device, which you
 # have already saved onto this device.
-CERT_FILE = "./4ac6b9240b-certificate.pem.crt"
+CERT_FILE = "./keys/4ac6b9240b-certificate.pem.crt"
 
 # A programmatic shadow handler name prefix.
 SHADOW_HANDLER = "MyRPi"
@@ -58,7 +58,7 @@ while True:
 
   if moisture:
     myDeviceShadow.shadowUpdate(
-      '{"state":{"reported":{"moisture":"okay"}}}',
+      '{"state":{"reported":{"moisture":"low"}}}',
       myShadowUpdateCallback, 5)
   else:
     myDeviceShadow.shadowUpdate(
